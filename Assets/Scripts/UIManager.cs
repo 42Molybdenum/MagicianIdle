@@ -9,10 +9,14 @@ public class UIManager : MonoBehaviour
     // Define scripts
 
     public GameManager gameManager;
+
+
     public FoodResource foodResource;
     public ManaResource manaResource;
     public WoodResource woodResource;
     public StoneResource stoneResource;
+
+    public ExploreArea1 exploreArea1;
 
     // Define panels
 
@@ -25,12 +29,17 @@ public class UIManager : MonoBehaviour
     private TMP_Text woodText;
     private TMP_Text stoneText;
 
+    private TMP_Text exploreArea1Text;
+
     // Define buttons
 
     private Button collectFoodButton;
     private Button collectManaButton;
     private Button collectWoodButton;
     private Button collectStoneButton;
+
+    private Button exploreArea1Button;
+    
     private Button introButton;
 
     // Define sliders
@@ -40,6 +49,7 @@ public class UIManager : MonoBehaviour
     private Slider woodSlider;
     private Slider stoneSlider;
 
+    private Slider exploreArea1Slider;
 
 
 
@@ -56,13 +66,17 @@ public class UIManager : MonoBehaviour
         woodText = GameObject.Find("WoodText").GetComponent<TMP_Text>();
         stoneText = GameObject.Find("StoneText").GetComponent<TMP_Text>();
 
+        exploreArea1Text = GameObject.Find("ExploreArea1Text").GetComponent<TMP_Text>();
+
         // Get buttons
 
         collectFoodButton = GameObject.Find("CollectFoodButton").GetComponent<Button>();
         collectManaButton = GameObject.Find("CollectManaButton").GetComponent<Button>();
         collectWoodButton = GameObject.Find("CollectWoodButton").GetComponent<Button>();
         collectStoneButton = GameObject.Find("CollectStoneButton").GetComponent<Button>();
-        
+
+        exploreArea1Button = GameObject.Find("ExploreArea1Button").GetComponent<Button>();
+
         introButton = GameObject.Find("IntroButton").GetComponent<Button>();
 
         // Add button listeners
@@ -71,7 +85,9 @@ public class UIManager : MonoBehaviour
         collectManaButton.onClick.AddListener(ManaButtonClicked);
         collectWoodButton.onClick.AddListener(WoodButtonClicked);
         collectStoneButton.onClick.AddListener(StoneButtonClicked);
-        
+
+        exploreArea1Button.onClick.AddListener(ExploreArea1ButtonClicked);
+
         introButton.onClick.AddListener(CloseIntro);
 
         // Get sliders
@@ -80,6 +96,8 @@ public class UIManager : MonoBehaviour
         manaSlider = GameObject.Find("ManaSlider").GetComponent<Slider>();
         woodSlider = GameObject.Find("WoodSlider").GetComponent<Slider>();
         stoneSlider = GameObject.Find("StoneSlider").GetComponent<Slider>();
+
+        exploreArea1Slider = GameObject.Find("ExploreArea1Slider").GetComponent<Slider>();
 
     }
 
@@ -98,6 +116,8 @@ public class UIManager : MonoBehaviour
         woodText.text = "Wood: " + string.Format("{0:0.##}", woodResource.currentAmount);
         stoneText.text = "Stone: " + string.Format("{0:0.##}", stoneResource.currentAmount);
 
+        exploreArea1Text.text = "Explored: " + string.Format("{0:0.##}", exploreArea1.currentAmount + "%");
+
         foodSlider.maxValue = (float)foodResource.storageAmount;
         foodSlider.value = (float)foodResource.currentAmount;
 
@@ -109,6 +129,10 @@ public class UIManager : MonoBehaviour
 
         stoneSlider.maxValue = (float)stoneResource.storageAmount;
         stoneSlider.value = (float)stoneResource.currentAmount;
+
+
+        exploreArea1Slider.maxValue = (float)exploreArea1.storageAmount;
+        exploreArea1Slider.value = (float)exploreArea1.currentAmount;
     }
 
     public void FoodButtonClicked()
@@ -130,6 +154,13 @@ public class UIManager : MonoBehaviour
     {
         gameManager.SetActiveResource(stoneResource);
     }
+
+    public void ExploreArea1ButtonClicked()
+    {
+        gameManager.SetActiveResource(exploreArea1);
+    }
+
+
 
     public void CloseIntro()
     {

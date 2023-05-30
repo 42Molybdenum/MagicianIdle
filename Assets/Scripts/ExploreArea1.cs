@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ExploreArea1 : Resource
 {
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -11,7 +14,7 @@ public class ExploreArea1 : Resource
         currentAmount = 0.0d;
         storageAmount = 100.0d;
         earningAmount = 0.1d;
-        consumptionAmount = 0.0d;
+        consumptionAmount = 0.1d;
         consumedResource = FindObjectOfType<FoodResource>();
     }
 

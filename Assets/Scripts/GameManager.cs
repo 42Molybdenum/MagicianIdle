@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public WoodResource woodResource;
     public StoneResource stoneResource;
 
+    public ExploreArea1 exploreArea1;
+
 
     private void Awake()
     {
