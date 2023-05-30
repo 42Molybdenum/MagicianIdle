@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    
     private Resource activeResource;
     public FoodResource foodResource;
     public ManaResource manaResource;
@@ -48,5 +49,4 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
 }
