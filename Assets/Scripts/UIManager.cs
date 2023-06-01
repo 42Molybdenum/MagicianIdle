@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
 
     // Define panels
 
-    public GameObject popupPanel;
+
 
     // Define Game Objects
 
@@ -47,7 +47,7 @@ public class UIManager : MonoBehaviour
 
     private Button exploreArea1Button;
     
-    private Button popupButton;
+
 
     // Define sliders
 
@@ -64,7 +64,7 @@ public class UIManager : MonoBehaviour
     {
         // Get Panels
 
-        popupPanel = GameObject.Find("PopupPanel");
+
 
         // Get Game Objects
 
@@ -90,7 +90,7 @@ public class UIManager : MonoBehaviour
 
         exploreArea1Button = GameObject.Find("ExploreArea1Button").GetComponent<Button>();
 
-        popupButton = GameObject.Find("PopupButton").GetComponent<Button>();
+
 
         // Add button listeners
 
@@ -101,7 +101,7 @@ public class UIManager : MonoBehaviour
 
         exploreArea1Button.onClick.AddListener(ExploreArea1ButtonClicked);
 
-        popupButton.onClick.AddListener(ClosePopup);
+
 
         // Get sliders
 
@@ -179,10 +179,7 @@ public class UIManager : MonoBehaviour
 
 
 
-    public void ClosePopup()
-    {
-        popupPanel.SetActive(false);
-    }
+
 
     public void SetInactive(GameObject obj)
     {
