@@ -21,12 +21,13 @@ public class UIManager : MonoBehaviour
 
     // Define panels
 
-    public GameObject introPanel;
+    public GameObject popupPanel;
 
     // Define Game Objects
 
     public GameObject manaContainer;
     public GameObject woodContainer;
+    public GameObject stoneContainer;
     
     // Define texts
     
@@ -46,7 +47,7 @@ public class UIManager : MonoBehaviour
 
     private Button exploreArea1Button;
     
-    private Button introButton;
+    private Button popupButton;
 
     // Define sliders
 
@@ -63,12 +64,13 @@ public class UIManager : MonoBehaviour
     {
         // Get Panels
 
-        introPanel = GameObject.Find("IntroPanel");
+        popupPanel = GameObject.Find("PopupPanel");
 
         // Get Game Objects
 
         manaContainer = GameObject.Find("ManaContainer");
         woodContainer = GameObject.Find("WoodContainer");
+        stoneContainer = GameObject.Find("StoneContainer");
 
         // Get texts
 
@@ -88,7 +90,7 @@ public class UIManager : MonoBehaviour
 
         exploreArea1Button = GameObject.Find("ExploreArea1Button").GetComponent<Button>();
 
-        introButton = GameObject.Find("IntroButton").GetComponent<Button>();
+        popupButton = GameObject.Find("PopupButton").GetComponent<Button>();
 
         // Add button listeners
 
@@ -99,7 +101,7 @@ public class UIManager : MonoBehaviour
 
         exploreArea1Button.onClick.AddListener(ExploreArea1ButtonClicked);
 
-        introButton.onClick.AddListener(CloseIntro);
+        popupButton.onClick.AddListener(ClosePopup);
 
         // Get sliders
 
@@ -131,7 +133,7 @@ public class UIManager : MonoBehaviour
         woodText.text = "Wood: " + string.Format("{0:0.##}", woodResource.currentAmount);
         stoneText.text = "Stone: " + string.Format("{0:0.##}", stoneResource.currentAmount);
 
-        exploreArea1Text.text = "Explored: " + string.Format("{0:0.##}", exploreArea1.currentAmount + "%");
+        exploreArea1Text.text = "Explored: " + string.Format("{0:0.##}", exploreArea1.currentAmount) + "%";
 
         foodSlider.maxValue = (float)foodResource.storageAmount;
         foodSlider.value = (float)foodResource.currentAmount;
@@ -177,9 +179,9 @@ public class UIManager : MonoBehaviour
 
 
 
-    public void CloseIntro()
+    public void ClosePopup()
     {
-        introPanel.SetActive(false);
+        popupPanel.SetActive(false);
     }
 
     public void SetInactive(GameObject obj)

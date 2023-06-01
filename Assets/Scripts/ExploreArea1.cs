@@ -8,11 +8,12 @@ public class ExploreArea1 : Resource
 
     public event Action OnDiscoveryEvent1;
     public event Action OnDiscoveryEvent2;
-
+    public event Action OnDiscoveryEvent3;
 
     [HideInInspector]
     public bool area1Discovery1 = false;
     public bool area1Discovery2 = false;
+    public bool area1Discovery3 = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class ExploreArea1 : Resource
 
         OnDiscoveryEvent1 += HandleDiscoveryEvent1;
         OnDiscoveryEvent2 += HandleDiscoveryEvent2;
-
+        OnDiscoveryEvent3 += HandleDiscoveryEvent3;
     }
 
     // Update is called once per frame
@@ -47,6 +48,12 @@ public class ExploreArea1 : Resource
         uiManager.SetActive(uiManager.woodContainer);
     }
 
+    private void HandleDiscoveryEvent3()
+    {
+        area1Discovery3 = true;
+        uiManager.SetActive(uiManager.stoneContainer);
+    }
+
     public override void CheckDiscoveryEventsArea1()
     {
         if (currentAmount >= 1.0d && !area1Discovery1)
@@ -56,6 +63,10 @@ public class ExploreArea1 : Resource
         if (currentAmount >= 2.5d && !area1Discovery2)
         {
             OnDiscoveryEvent2.Invoke();
+        }
+        if (currentAmount >= 20d && !area1Discovery3)
+        {
+            OnDiscoveryEvent3.Invoke();
         }
     }
 }

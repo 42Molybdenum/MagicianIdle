@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.1f);
             if (activeResource != null)
             {
                 activeResource.Collect();
