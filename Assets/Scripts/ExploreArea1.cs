@@ -35,9 +35,8 @@ public class ExploreArea1 : Resource
 
     private void HandleDiscoveryEvent1()
     {
-        Debug.Log("Event triggered");
         area1Discovery1 = true;
-        Debug.Log(area1Discovery1);
+        uiManager.SetActive(uiManager.manaContainer);
     }
 
     public override void CheckDiscoveryEvents()

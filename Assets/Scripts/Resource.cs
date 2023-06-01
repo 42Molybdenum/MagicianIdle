@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class Resource : MonoBehaviour
 {
+    // Define Scripts
+
+    public GameManager gameManager;
+    public UIManager uiManager;
+    
     // Define variables
     
     [HideInInspector]

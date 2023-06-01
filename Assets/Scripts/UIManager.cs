@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,10 @@ public class UIManager : MonoBehaviour
 
     public GameObject introPanel;
 
+    // Define Game Objects
+
+    public GameObject manaContainer;
+    
     // Define texts
     
     private TMP_Text foodText;
@@ -59,7 +64,10 @@ public class UIManager : MonoBehaviour
 
         introPanel = GameObject.Find("IntroPanel");
 
-        
+        // Get Game Objects
+
+        manaContainer = GameObject.Find("ManaContainer");
+
         // Get texts
 
         foodText = GameObject.Find("FoodText").GetComponent<TMP_Text>();
@@ -99,6 +107,10 @@ public class UIManager : MonoBehaviour
         stoneSlider = GameObject.Find("StoneSlider").GetComponent<Slider>();
 
         exploreArea1Slider = GameObject.Find("ExploreArea1Slider").GetComponent<Slider>();
+
+        // Set undiscovered buttons inactive
+
+        // SetInactive(manaContainer);
 
     }
 
@@ -166,6 +178,25 @@ public class UIManager : MonoBehaviour
     public void CloseIntro()
     {
         introPanel.SetActive(false);
+    }
+
+    public void SetInactive(GameObject obj)
+    {
+        CanvasGroup canvasGroup = obj.GetComponent<CanvasGroup>();
+        
+        canvasGroup.alpha = 0f;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+    }
+
+
+    public void SetActive(GameObject obj)
+    {
+        CanvasGroup canvasGroup = obj.GetComponent<CanvasGroup>();
+
+        canvasGroup.alpha = 1f;
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
     }
 
 }
