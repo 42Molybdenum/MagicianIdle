@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
     // Define Game Objects
 
     public GameObject manaContainer;
+    public GameObject woodContainer;
     
     // Define texts
     
@@ -67,6 +68,7 @@ public class UIManager : MonoBehaviour
         // Get Game Objects
 
         manaContainer = GameObject.Find("ManaContainer");
+        woodContainer = GameObject.Find("WoodContainer");
 
         // Get texts
 

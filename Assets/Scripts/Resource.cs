@@ -51,7 +51,7 @@ public class Resource : MonoBehaviour
                 {
                     consumedResource.currentAmount -= consumption;
                     currentAmount += earningAmount;
-                    CheckDiscoveryEvents();
+                    CheckDiscoveryEventsArea1();
                 }
                 else
                 {
@@ -61,12 +61,12 @@ public class Resource : MonoBehaviour
             else
             {
                 currentAmount += earningAmount;
-                CheckDiscoveryEvents();
+                CheckDiscoveryEventsArea1();
             }
         }
     }
 
-    public virtual void CheckDiscoveryEvents()
+    public virtual void CheckDiscoveryEventsArea1()
     {
 
     }
