@@ -58,6 +58,7 @@ public class UIManager : MonoBehaviour
         // Get Panels
 
         introPanel = GameObject.Find("IntroPanel");
+
         
         // Get texts
 
