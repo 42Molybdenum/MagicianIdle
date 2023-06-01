@@ -12,12 +12,20 @@ public class PopupManager : MonoBehaviour
 
     private void Awake()
     {
-        popupPanel = GameObject.Find("PopupPanel");
-
         popupButton = GameObject.Find("PopupButton").GetComponent<Button>();
 
         popupButton.onClick.AddListener(ClosePopup);
+
+        OpenPopup();
     }
+
+    public void OpenPopup()
+    {
+        popupPanel = GameObject.Find("PopupPanel");
+    }
+
+
+
 
     public void ClosePopup()
     {
