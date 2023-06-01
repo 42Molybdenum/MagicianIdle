@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,6 +46,7 @@ public class Resource : MonoBehaviour
                 {
                     consumedResource.currentAmount -= consumption;
                     currentAmount += earningAmount;
+                    CheckDiscoveryEvents();
                 }
                 else
                 {
@@ -54,8 +56,14 @@ public class Resource : MonoBehaviour
             else
             {
                 currentAmount += earningAmount;
+                CheckDiscoveryEvents();
             }
         }
+    }
+
+    public virtual void CheckDiscoveryEvents()
+    {
+
     }
 
 }
