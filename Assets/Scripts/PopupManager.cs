@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class PopupManager : MonoBehaviour
 {
-
+    public GameManager gameManager;
+    
     public GameObject popupPanel;
 
     private Button popupButton;
@@ -29,6 +30,7 @@ public class PopupManager : MonoBehaviour
     public void OpenPopup()
     {
         popupPanel.SetActive(true);
+        gameManager.activeResource = null;
     }
 
 

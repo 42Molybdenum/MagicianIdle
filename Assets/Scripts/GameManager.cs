@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     
-    private Resource activeResource;
+    public Resource activeResource;
     public FoodResource foodResource;
     public ManaResource manaResource;
     public WoodResource woodResource;
